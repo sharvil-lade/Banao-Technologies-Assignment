@@ -1,86 +1,82 @@
 # Screen recording plan — 3 minutes maximum
 
-The brief asks the recording to show: **the prompts used · what changed between
-versions · what was thrown away**, plus the working tool. **No slides.** Phone
-recording of the screen is fine.
+The brief asks the recording to show: **the prompts used · what changed
+between versions · what was thrown away**, plus the working tool. **No
+slides.** Phone recording of the screen is fine.
 
-Budget: **175 seconds of content**, leaving ~5s of slack. Nothing is scripted
-word-for-word — these are the beats and what must be visible on screen.
+Budget: **175 seconds of content**, leaving ~5s of slack.
+
+This is a **cue card, not a script** — short phrases to glance at and speak
+naturally off, not sentences to read verbatim. Reading full sentences on
+camera sounds stiff and eats the time budget; talking naturally off short
+cues doesn't.
 
 ---
 
-## Shot list
+## Cue card
 
-### 0:00–0:20 · The problem, in the client's own words (20s)
-**On screen:** `data/raw/email-thread.txt` open, scrolled to Arjun's 9 Sep message.
-**Say:** "Finance says over a crore a quarter. The helpdesk says eleven lakh.
-Same file. One of them is reading it wrong."
-**Then:** run in a terminal —
+**0:00–0:20 — The problem**
+*[email-thread.txt, Arjun's message]*
+- Finance: >1 crore/qtr. Helpdesk: ~11 lakh. Which one's right?
+
+*[run: raw CSV sum in terminal]*
 ```bash
 python -c "import pandas as pd; print(pd.read_csv('data/raw/tickets.csv').refund_amount_inr.replace('',None).astype(float).sum())"
 ```
-→ `230124081.0` appears. "There's the crore. It's reproducible."
+- "Raw export sums to ~23 crore — reproducible, but unusable as-is."
 
-### 0:20–0:50 · The prompts (30s)
-**On screen:** split — `prompts/reason_classifier.md` on one side, the Claude Code
-session on the other.
-**Show two things:**
-1. The classifier prompt, specifically the line *"Only return GW-OTHER when the
-   text positively indicates a discretionary goodwill gesture"* — and say why
-   that line exists (GW-OTHER is the dropdown default).
-2. The build prompt's standing rule: *"Do not use an LLM for arithmetic that can
-   be done deterministically."*
-**Say:** "Every rupee is pandas. The model only ever returns a label."
+**0:20–0:50 — Using AI carefully**
+*[prompts/reason_classifier.md]*
+- "AI only classifies text — never touches the money."
+- "Rule: only call it goodwill if the text actually says so — GW-OTHER is
+  the dropdown default, easy to over-trust."
+- "If pandas can compute it, pandas computes it."
 
-### 0:50–1:20 · What changed between versions (30s)
-**On screen:** `docs/ai-design.md` §2, the two-tier diagram.
-**Say:** "Version one sent all 991 goodwill tickets to a model. I got 168 through
-and stopped — wrong architecture. Version two puts deterministic rules first."
-**Show the numbers on screen:** 94.7% resolved free, 5.3% escalated,
-₹46/month → ₹0.81/month.
-**The punchline:** "And the 168 tickets weren't wasted — they became the
-evaluation set. So instead of an assumed accuracy I have a measured one: 97.5%."
+**0:50–1:20 — What changed**
+*[docs/ai-design.md, the two-tier diagram]*
+- "First plan: send all 991 goodwill tickets to the model. Stopped after
+  168 — wrong architecture."
+- "Switched to two-tier: rules first, model only for the ~5%."
+- "Cost dropped ₹46 → ₹0.81 a month."
+- "Those 168 became my evaluation set instead — 97.5% measured accuracy."
 
-### 1:20–1:45 · What was thrown away (25s)
-**On screen:** run the test, live —
+**1:20–1:45 — What I threw away**
+*[run, live]*
 ```bash
 python -m pytest tests/test_dedupe.py::test_naive_drop_duplicates_would_have_been_wrong -v
 ```
-**Say:** "The first dedupe used `drop_duplicates`. 125 of the 638 pairs differ on
-amount, so it would have banked a paise value as rupees — ninety thousand rupees
-where the truth is nine hundred. This test exists to prove the bug I removed."
-**Also name, quickly:** repeat-contact costing (built, measured at ₹1.23 L/qtr,
-dropped as undefendable) and the roster fast path a test caught.
+- "First dedupe: `drop_duplicates()`. Wrong — 125 of 638 pairs have
+  different amounts, ₹900 vs ₹90,000. Would've silently corrupted the
+  number."
+- "Also dropped repeat-contact costing — couldn't defend the assumption."
 
-### 1:45–2:35 · The tool (50s)
-**On screen:** `streamlit run app/app.py`
-- **Monthly** — pick `2026-03`, ₹4,35,773 across 163 refunds.
-- **What for (AI)** — the two metrics side by side: booked as goodwill
-  ₹29,07,036, text supports ₹1,35,652. "43% becomes 2%."
-- **Agents** — pause on the policy §6 warning banner. Say: "I was asked who's
-  giving away money. The top three are Returns Desk, Billing and Logistics —
-  the teams whose job is refunds. I'm not handing Finance a league table."
-- **Records** — open `TK-240003`. FACT panel left, INTERPRETATION panel right.
+**1:45–2:35 — The tool**
+```bash
+python -m streamlit run app/app.py
+```
+- *[Monthly, pick 2026-03]* — "163 refunds, ₹4.36L."
+- *[What for / AI]* — "Booked as goodwill: ₹29L. Text actually supports:
+  ₹1.36L. 43% becomes 2%."
+- *[Agents]* — "Not a leaderboard on purpose — Returns, Billing, Logistics
+  do most refunds by design."
+- *[Records → TK-240003]* — "Every number traces to one ticket — fact on
+  the left, AI read on the right."
 
-### 2:35–2:55 · The validation example (20s)
-**On screen:** stay on `TK-240003`, scroll to the duplicate-audit row.
-**Say:** "Helpdesk says 900. Legacy says 90000. Ratio exactly 100 — and that
-holds for all 125 pairs where both systems recorded an amount, with zero
-variance. That's not an assumption about paise, it's a measurement. After
-conversion all 125 pairs agree to the rupee."
-**Then:** Reconciliation tab → the bridge → **Residual ₹0.00**.
+**2:35–2:55 — Proof**
+- *[Duplicate audit, TK-240003]* — "Helpdesk 900, legacy 90,000. Ratio
+  exactly 100 — across all 125 pairs, zero variance."
+- *[Reconciliation tab]* — "Residual: ₹0.00."
 
-### 2:55–3:00 · Close (5s)
-**On screen:** terminal, `python -m vireo.pipeline` finishing.
-**Say:** "Ten seconds, clean machine, no API key. ₹11.18 lakh a quarter, and it
-reconciles."
+**2:55–3:00 — Close**
+*[terminal, pipeline finishing]*
+- "Clean machine, ~10 seconds. ₹11.18 lakh a quarter — fully traceable."
 
 ---
 
 ## Preparation checklist
 
 - [ ] `python -m vireo.pipeline` run once already (so the recording isn't waiting on it)
-- [ ] `streamlit run app/app.py` already up in a browser tab, on the Monthly tab
+- [ ] `python -m streamlit run app/app.py` already up in a browser tab, on the Monthly tab
 - [ ] Terminal font large enough to read on a phone screen
 - [ ] Tabs pre-opened: `email-thread.txt`, `prompts/reason_classifier.md`, `docs/ai-design.md`
 - [ ] Notifications off
@@ -90,5 +86,5 @@ reconciles."
 
 In this order: the second half of 1:20–1:45 (keep only the `drop_duplicates`
 test), then the Agents tab, then the close. **Never cut** the 2:35–2:55
-validation example or the "43% becomes 2%" moment — those are the two findings
-the whole submission rests on.
+validation example or the "43% becomes 2%" moment — those are the two
+findings the whole submission rests on.
