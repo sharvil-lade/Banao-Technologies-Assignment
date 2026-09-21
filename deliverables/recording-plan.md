@@ -4,96 +4,122 @@ The brief asks the recording to show: **the prompts used · what changed
 between versions · what was thrown away**, plus the working tool. **No
 slides.** Phone recording of the screen is fine.
 
-Budget: **170 seconds of content**, leaving ~10s of slack.
+Budget: **~175 seconds of content**, leaving a few seconds of slack.
 
-Two screens, two actions: **run the pipeline once, then walk the app.**
-Nothing else to open. The problem, the AI usage, what changed, and what
-got thrown away are all spoken while the pipeline runs or its output sits
-on screen - not shown as separate files.
-
-**One trade-off, on purpose:** the brief asks the video to "walk through
-the prompts you used." Not opening `prompts/reason_classifier.md` on
-screen means that beat is spoken, not shown - the cue card below quotes
-the actual rule word-for-word so it's still genuinely covered, just not
-visually. If you'd rather be safe, glancing at that file for 3 seconds
-during the 0:15-0:45 beat is cheap insurance; it isn't required by this
-plan.
-
-This is a **cue card, not a script** - plain, spoken lines to glance at,
-not sentences to memorize. Talk naturally off these; don't read them.
+This is a **script to speak naturally off, not memorize word-for-word.**
+Screens: VS Code (`vireo/pipeline.py`) → terminal → browser (the app) →
+terminal again for the close.
 
 ---
 
-## Cue card
+## Script
 
-**0:00–0:15 — Start it** *(terminal)*
+**0:00–0:30 — Main Pipeline** *(VS Code → `vireo/pipeline.py`)*
+> "Let me quickly walk through what I built. The pipeline starts with the
+> raw support data and does the main reconciliation work - validation,
+> duplicate detection, normalization, and joins. It then creates a
+> canonical refund dataset, which is what all the final numbers are
+> calculated from. I kept the financial calculations deterministic, and
+> AI is only used where we need to interpret the support text."
+
+*[Run]*
 ```bash
 python -m vireo.pipeline
 ```
-> "Finance thought refunds were over a crore a quarter. Helpdesk said only
-> about 11 lakh. This sorts out which one's real."
+> "Once the pipeline finishes, I have the reconciled data that powers the
+> application."
 
-**0:15–0:45 — AI + what changed** *(same terminal, output scrolling)*
-> "I used AI only to read the ticket text - never for the money, only the
-> code does math. The rule: only call something goodwill if the person's
-> own words actually say so, because 'Goodwill / Other' is just the first
-> option in the dropdown."
-> "First try, I sent all 991 goodwill tickets to the AI, one by one -
-> stopped after 168, too slow, too expensive. So I flipped it: simple
-> rules catch almost everything, AI only looks at the tricky 5%. Cost
-> dropped from ₹46 a month to under a rupee, and I reused those 168 to
-> test the AI - 97.5% accurate."
+**0:30–0:55 — What changed / AI** *(pipeline or `docs/ai-design.md`)*
+> "My first approach sent all goodwill cases to the model. I changed that
+> to deterministic rules first, and AI only for the cases that actually
+> need interpretation. The rule I gave it: only call something goodwill
+> if the text itself says so - not just because it's the first option in
+> the dropdown. I also removed the simple duplicate approach because it
+> wasn't safe for the legacy data. So the final pipeline is smaller,
+> cheaper, and easier to validate."
+> "Those changes brought AI usage down to about 5 percent, and when I
+> checked the rule-based labels against a sample I hand-checked, they
+> matched 97.5 percent of the time."
 
-**0:45–1:10 — What I threw away** *(point at the terminal output)*
-> "My first idea for duplicate tickets was just deleting the copies.
-> Wrong - 125 of them had different amounts, ₹900 on one side, ₹90,000 on
-> the other. Delete the wrong one, the number's broken. Also tried costing
-> out repeat complaints as a savings idea - couldn't prove it, dropped
-> it."
-
-*[point at "residual=Rs 0.00 identities=ALL PASS" in the output]*
-> "And it all reconciles - nothing left over."
-
-**1:10–2:40 — The app** *(browser, one tab)*
+**0:55–2:25 — App Demo**
 ```bash
-python -m streamlit run app/app.py
+streamlit run app/app.py
 ```
-- *Monthly:* "March 2026 - 163 refunds, about ₹4.36 lakh."
-- *What for / AI:* "Booked as goodwill: ₹29 lakh. Real: ₹1.36 lakh. 43%
-  becomes 2%."
-- *Records → TK-240003:* "Click any number, see the real ticket - old
-  system said 90,000, new system said 900, same ticket, off by exactly
-  100. True for all 125 like it."
-- *Reconciliation:* "Add it all up - matches, nothing missing."
 
-**2:40–3:00 — Close** *(back to terminal)*
-> "Clean computer, ten seconds, and you get the real number - ₹11.18 lakh
-> a quarter, every rupee checkable."
+*Monthly*
+> "First, the Monthly view gives the overall refund picture."
+
+*[Select `2026-03`]*
+> "For March, there are 163 refunds totaling around ₹4.36 lakh."
+
+*What For*
+
+*[Open What For / AI]*
+> "This is where AI adds value. It looks at the customer message and
+> agent notes and checks what the text actually supports, instead of
+> blindly trusting the refund label."
+
+*[Show the two numbers]*
+> "Here we can see the difference between what was booked as goodwill
+> and what the text actually supports."
+
+*Agents*
+
+*[Open Agents]*
+> "The agent view lets Finance investigate who is associated with the
+> refunds. But I deliberately didn't make this a simple leaderboard,
+> because different teams have different responsibilities."
+
+*Records*
+
+*[Open `TK-240003`]*
+> "And finally, every result is traceable back to the original ticket.
+> The source facts and the AI interpretation are shown separately."
+
+**2:25–2:50 — Validation** *(duplicate audit / reconciliation)*
+> "This is one example of the validation. The current system has ₹900
+> and the legacy record has ₹90,000. The same 100-to-1 relationship held
+> across all 125 pairs, no exceptions. After normalization, the
+> reconciliation has zero residual."
+
+**2:50–3:00 — Close** *(pipeline output / final result)*
+> "So the final result is a reproducible pipeline, a traceable refund
+> analysis, and a reconciled figure of around ₹11.18 lakh per quarter."
 
 ---
 
-## What's not in the video (on purpose)
+## Two edits made to the original draft, and why
 
-- No separate prompt file, no live pytest run, no email thread, no
-  AI-design doc - all spoken instead of shown (see the trade-off note
-  above).
-- The Agents tab isn't shown - "I didn't rank agents" is already covered
-  in the memo and the submission form (Q4).
+1. **Added one line naming the actual prompt rule** (in the 0:30–0:55
+   beat): the brief specifically asks the recording to walk through "the
+   prompts you used." The original draft never named or quoted one - this
+   closes that gap in one sentence, no new screen needed.
+2. **Reworded the 97.5% accuracy line.** Sitting right next to "AI usage
+   down to 5 percent," the original phrasing could sound like it's the
+   *model's* accuracy on the escalated 5% of cases - but tier-2 accuracy
+   is explicitly unmeasured (see `docs/validation.md` / the submission
+   form's "what's wrong with this" answer). 97.5% is actually the
+   deterministic rules' accuracy against the hand-checked sample. Reworded
+   so the video doesn't accidentally contradict what the docs already say
+   honestly. Also changed "the duplicate pairs I checked" to "all 125
+   pairs, no exceptions" - it wasn't a sample, it was all of them, and
+   that's the stronger, more accurate claim.
 
 ## Preparation checklist
 
-- [ ] `python -m vireo.pipeline` run once already (so you know the output
-      and timing, even though you'll run it again on camera)
+- [ ] `vireo/pipeline.py` open in VS Code, scrolled to a readable point
+      (e.g. the `run()` function) before you start recording
+- [ ] `python -m vireo.pipeline` run once already, so you know the timing
 - [ ] `python -m streamlit run app/app.py` already up in a browser tab, on
       the Monthly tab, so switching to it is instant
 - [ ] Terminal font large enough to read on a phone screen
 - [ ] Notifications off
-- [ ] Rehearse once against a timer - the app section is the first thing
-      to trim if over
+- [ ] Rehearse once against a timer - the App Demo section is the first
+      thing to trim if over
 
 ## What to cut if you run long
 
-In this order: the second half of 0:15–0:45 (keep only "cost dropped to
-under a rupee"), then the Records-tab duplicate detail, then the close.
-**Never cut** the "43% becomes 2%" moment or the reconciliation line -
-those are the two findings the whole submission rests on.
+In this order: the Agents-tab detour, then the second sentence of
+0:30–0:55, then the close. **Never cut** the "What For" numbers or the
+reconciliation line - those are the two findings the whole submission
+rests on.
