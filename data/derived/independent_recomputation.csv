@@ -1,0 +1,4 @@
+check,independent,pipeline,difference,result
+canonical refund total,6709932.0,6709932.0,0.0,PASS
+canonical refund count,2340.0,2340.0,0.0,PASS
+distinct canonical tickets,11600.0,,,INFO

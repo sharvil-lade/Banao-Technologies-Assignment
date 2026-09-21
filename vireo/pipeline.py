@@ -8,7 +8,8 @@ from __future__ import annotations
 import sys
 import pandas as pd
 from . import (config, load, validate, normalise, dedupe, agents as agents_mod,
-               joins, policy, canonical, aggregate, reconcile, ai_classify)
+               joins, policy, canonical, aggregate, reconcile, ai_classify,
+               validate_sample, impact, costs)
 
 
 def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True,
@@ -106,6 +107,24 @@ def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True,
     if not (identities.result == "PASS").all():
         raise SystemExit("aggregation identity failed - refusing to publish")
 
+    # 10. independent verification + business impact -----------------------
+    sample_df, sample_summary = validate_sample.verify_sample(refunds, n=60)
+    indep = validate_sample.verify_totals_independently(refunds)
+    buckets = impact.build_buckets(refunds)
+    impact_summary = impact.summarise(refunds, buckets)
+    cost_run = costs.measure_run(refunds, labels)
+    cost_month = costs.project_monthly(cost_run, 650, refunds=refunds, tickets=tickets_tbl)
+    say(f"[10/10] verified   sample={sample_summary['sample_size']} rows, "
+        f"{sample_summary['field_checks_run']} field checks, "
+        f"error rate {sample_summary['field_error_rate_pct']}% | "
+        f"independent total {'PASS' if (indep.result != 'FAIL').all() else 'FAIL'} | "
+        f"avoidable Rs {impact_summary['avoidable_identified_per_quarter_inr']:,}/qtr")
+    if (indep.result == "FAIL").any():
+        raise SystemExit("independent recomputation disagrees with the pipeline")
+    if sample_summary["field_checks_failed"] > 0:
+        say(f"        WARNING: {sample_summary['field_checks_failed']} field checks failed "
+            f"- see sample_verification.csv")
+
     outputs = {
         "canonical_refunds": refunds,
         "canonical_tickets": tickets_tbl,
@@ -125,6 +144,12 @@ def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True,
         "by_theme": theme,
         "ai_coverage": ai_cov,
         "ai_labels": labels,
+        "sample_verification": sample_df,
+        "independent_recomputation": indep,
+        "business_impact": buckets,
+        "business_impact_summary": pd.DataFrame([impact_summary]),
+        "cost_per_run": pd.DataFrame([cost_run]),
+        "cost_monthly": pd.DataFrame([cost_month]),
     }
     for name, df in outputs.items():
         df.to_csv(out_dir / f"{name}.csv", index=False)
