@@ -228,5 +228,12 @@ def _write_validation_md(path, frame):
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """CLI / console-script entry point. Wraps run() so nothing is printed to
+    stderr and the process exits 0 - run() itself still returns the full
+    result dict for callers (see tests/conftest.py)."""
     run()
+
+
+if __name__ == "__main__":
+    main()

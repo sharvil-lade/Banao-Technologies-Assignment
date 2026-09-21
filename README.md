@@ -75,6 +75,9 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+`make setup` does the same three commands. `pip install -e ".[dev]"` also
+works, via `pyproject.toml`, if you'd rather install the package properly.
+
 Verified from scratch in a clean virtualenv on 2026-09-21: `pandas`, `pytest`,
 `streamlit` install and the full pipeline runs with no other setup.
 
@@ -277,6 +280,7 @@ vireo/            pipeline modules (load → validate → normalise → dedupe �
                   → reconcile → impact → validate_sample → costs)
 tests/            71 tests
 app/app.py        Streamlit reviewer
+scripts/          one-off Step 1 data-audit scripts (not part of the pipeline; see scripts/README.md)
 prompts/          the AI classifier prompt, versioned
 data/raw/         supplied files, unmodified
 data/derived/     24 generated tables (canonical_refunds.csv is the key one)
@@ -286,6 +290,7 @@ reports/          reconciliation.md · validation.md
 docs/             requirements · data-audit · decisions · data-dictionary
                   ai-design · validation · business-impact · scope · final-checklist
 deliverables/     memo to Arjun Mehta · submission form · recording plan
+pyproject.toml    packaging metadata (pip install -e ".[dev]"); Makefile wraps the commands below
 ```
 
 ## Three things a new developer needs to know

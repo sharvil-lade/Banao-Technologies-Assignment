@@ -1,0 +1,17 @@
+# Normalize line endings so the repo is consistent regardless of the OS or
+# editor that touched a file last. Text files are stored as LF in git and
+# checked out as LF; this is a bookkeeping fix only (see: git diff -w shows
+# no content changes at the time this was added) - it does not alter any
+# figure a formula or the pipeline computes.
+* text=auto eol=lf
+
+*.csv text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.txt text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Binary, leave alone
+*.pdf binary
