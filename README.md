@@ -29,17 +29,31 @@ data migration — both proven from the data, with zero unexplained residual.
 
 Requires **Python 3.10+**. No database, no Docker, no API key.
 
-```bash
-git clone <this-repo>
-cd ass1
-pip install -r requirements.txt
+### 1. Get the code
 
-python -m vireo.pipeline      # run the full pipeline (~10s)
-python -m pytest -q            # run the test suite (71 tests, ~9s)
-python -m streamlit run app/app.py   # open the reviewer UI at http://localhost:8501
+```bash
+git clone https://github.com/sharvil-lade/Banao-Technologies-Assignment.git
+cd Banao-Technologies-Assignment
+pip install -r requirements.txt
 ```
 
-Expected pipeline output ends with:
+### 2. Run the app
+
+```bash
+python -m streamlit run app/app.py
+```
+
+Opens at **http://localhost:8501**. The data it reads
+(`data/derived/*.csv`) is already committed to this repo, so the app works
+immediately — you do **not** need to run the pipeline first.
+
+### 3. (Optional) Regenerate the data yourself
+
+```bash
+python -m vireo.pipeline      # ~10 seconds
+```
+
+Expected output ends with:
 
 ```
 [9/9] reconciled  residual=Rs 0.00 identities=ALL PASS
@@ -48,12 +62,40 @@ Expected pipeline output ends with:
 If the residual isn't ₹0.00, the pipeline refuses to write output — that's
 deliberate, not a bug.
 
+### 4. (Optional) Run the tests
+
+```bash
+python -m pytest -q          # 71 tests, ~9 seconds
+```
+
+### If something doesn't work
+
+- **`'streamlit' is not recognized` / `'pytest' is not recognized`**
+  (common on Windows) — use `python -m streamlit run app/app.py` and
+  `python -m pytest -q`, exactly as above, instead of the bare `streamlit`
+  / `pytest` commands. This works no matter how your system's PATH is set
+  up.
+- **On Windows, in PowerShell:** `source .venv/bin/activate` is a
+  macOS/Linux command and doesn't exist there. Use
+  `.venv\Scripts\Activate.ps1` instead — or skip the virtual environment
+  entirely (see below, it's optional).
+- **`pip install` or creating the virtual environment seems stuck:** this
+  usually means the folder is synced by OneDrive, Dropbox, or Google
+  Drive, and the sync client is scanning every file as it's written. Wait
+  a minute or two, or create the virtual environment outside the synced
+  folder.
+
 <details>
-<summary>Using a virtual environment (optional)</summary>
+<summary>Using a virtual environment (optional, not required)</summary>
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate        # Windows PowerShell: .venv\\Scripts\\Activate.ps1
+
+# macOS / Linux:
+source .venv/bin/activate
+# Windows PowerShell:
+.venv\Scripts\Activate.ps1
+
 pip install -r requirements.txt
 ```
 
