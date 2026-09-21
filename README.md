@@ -37,8 +37,8 @@ cd ass1
 pip install -r requirements.txt
 
 python -m vireo.pipeline      # run the full pipeline (~10s)
-pytest -q                     # run the test suite (71 tests, ~9s)
-streamlit run app/app.py      # open the reviewer UI at http://localhost:8501
+python -m pytest -q            # run the test suite (71 tests, ~9s)
+python -m streamlit run app/app.py   # open the reviewer UI at http://localhost:8501
 ```
 
 Expected pipeline output ends with:
@@ -172,7 +172,7 @@ See [AI Usage & Cost](#ai-usage--cost) for running it against a live model.
 ## Testing
 
 ```bash
-pytest -q        # 71 tests, ~9 seconds
+python -m pytest -q        # 71 tests, ~9 seconds
 ```
 
 Covers duplicate handling, the legacy unit, missing values, joins, roster

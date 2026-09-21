@@ -8,10 +8,10 @@ run:
 	python -m vireo.pipeline
 
 test:
-	pytest -q
+	python -m pytest -q
 
 app:
-	streamlit run app/app.py
+	python -m streamlit run app/app.py
 
 clean:
 	find . -name '__pycache__' -type d -prune -exec rm -rf {} +
