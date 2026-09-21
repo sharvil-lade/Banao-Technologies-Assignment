@@ -30,6 +30,16 @@ from pathlib import Path
 import pandas as pd
 from . import config
 
+try:
+    # Loads ANTHROPIC_API_KEY (and anything else) from a local .env file, if
+    # one exists, into os.environ - see .env.example. Optional: the default
+    # backends (cache/rules/two_tier-with-cache-escalation) need no key and
+    # must keep working on a machine that has never heard of dotenv.
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 VALID_REASONS = set(config.REASON_LABELS) | {"INSUFFICIENT-EVIDENCE"}
 VALID_THEMES = {
     "payment_failure", "transit_lost", "transit_damage", "dead_on_arrival",
@@ -40,7 +50,9 @@ AI_COLUMNS = ["ai_suggested_reason", "ai_theme", "ai_confidence", "ai_evidence_q
               "ai_model", "ai_run_id"]
 
 PROMPT_PATH = config.ROOT / "prompts" / "reason_classifier.md"
-DEFAULT_CACHE = config.DERIVED / "ai_classifications.csv"
+DEFAULT_CACHE = config.DERIVED / "ai_labels.csv"  # the full per-run label
+# table this pipeline itself writes (see aggregate.py) - reloading it lets a
+# later run skip re-classifying without needing any model or key.
 MAX_TEXT = 400
 
 

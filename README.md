@@ -156,12 +156,13 @@ Everything tunable lives in `vireo/config.py`, each value traced to a source:
 | `TRANSFER_COST_INR` | 305 | policy §4 |
 | `SOURCE_PRIORITY` | helpdesk wins a duplicate pair | D-02 |
 
-AI backend (default needs no key):
+AI backend (default needs no key - see "AI usage" below for the live-API setup):
 
 ```bash
-python -m vireo.pipeline                                   # two_tier (default)
-python -c "from vireo import pipeline; pipeline.run(ai_backend='rules')"
-ANTHROPIC_API_KEY=... python -c "from vireo import pipeline; pipeline.run(escalate_backend='anthropic')"
+python -m vireo.pipeline                        # two_tier (default), no key needed
+python -m vireo.pipeline --ai-backend rules      # keyword baseline, no model at all
+python -m vireo.pipeline --ai-backend cache      # reload the last run's labels, no key
+python -m vireo.pipeline --help                  # full list of flags
 ```
 
 ---
@@ -213,6 +214,22 @@ Two tiers. Deterministic rules resolve **94.7%** of refunds for nothing; only th
 The model never sees a number it is asked to add. Its output lands in `ai_*`
 columns and never overwrites the recorded `reason_code`. The UI labels every
 panel **FACT** or **INTERPRETATION**.
+
+**Running it against the live API instead of the shipped cache:**
+
+```bash
+cp .env.example .env        # then edit .env and paste in ANTHROPIC_API_KEY
+pip install anthropic       # not in requirements.txt by default - see below
+python -m vireo.pipeline --escalate-backend anthropic
+```
+
+`.env` is gitignored and loaded automatically (via `python-dotenv`) - nothing
+to `export` by hand. Leave `--ai-backend` at its default (`two_tier`): rules
+still resolve 94.7% of refunds for free, and only the ~125 escalated tickets
+actually call the model, which is the whole point of the two-tier design
+above. `--ai-backend anthropic` also works but sends all 2,340 refunds to the
+model - the "naive" baseline this design was built to avoid, kept only so the
+full-API path is honest and complete rather than silently unsupported.
 
 ---
 

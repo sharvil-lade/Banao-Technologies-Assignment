@@ -5,6 +5,11 @@ pytest>=7.0
 # Reviewer UI only. The pipeline runs without it.
 streamlit>=1.30
 
+# Loads ANTHROPIC_API_KEY from a local .env file (see .env.example). Tiny,
+# no transitive deps - kept in core requirements even though the default
+# run needs no key.
+python-dotenv>=1.0
+
 # Optional: only needed for --ai-backend anthropic (re-running the AI layer
 # against the live API). The shipped results reproduce without it.
 # anthropic>=0.40

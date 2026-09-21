@@ -70,8 +70,8 @@ def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True,
     # Runs AFTER the canonical table is final. Nothing the model returns can
     # change a refund amount - attach() only adds ai_* columns (D-16).
     total_before = refunds.refund_amount_inr.sum()
-    labels = ai_classify.classify(refunds, backend=ai_backend,
-                                  escalate_backend=escalate_backend)
+    classify_kwargs = {"escalate_backend": escalate_backend} if ai_backend == "two_tier" else {}
+    labels = ai_classify.classify(refunds, backend=ai_backend, **classify_kwargs)
     refunds = ai_classify.attach(refunds, labels)
     assert refunds.refund_amount_inr.sum() == total_before, \
         "the AI layer changed a refund total - this must never happen"
@@ -228,11 +228,32 @@ def _write_validation_md(path, frame):
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
-def main() -> None:
+def _parse_args(argv=None):
+    import argparse
+    p = argparse.ArgumentParser(
+        prog="python -m vireo.pipeline",
+        description="Run the full refund reconciliation + AI-assisted analysis pipeline.")
+    p.add_argument(
+        "--ai-backend", choices=["two_tier", "cache", "rules", "anthropic"],
+        default="two_tier",
+        help="two_tier (default): rules first, escalate only unresolved cases "
+             "to --escalate-backend. cache: read the shipped label file as-is. "
+             "rules: keyword baseline, no model. anthropic: send every refund "
+             "ticket to the live API (needs ANTHROPIC_API_KEY - see .env.example).")
+    p.add_argument(
+        "--escalate-backend", choices=["cache", "anthropic"], default="cache",
+        help="Only used when --ai-backend=two_tier: how the ~5%% of tickets "
+             "rules can't resolve get classified. cache (default) needs no "
+             "key; anthropic calls the live API for just those tickets.")
+    return p.parse_args(argv)
+
+
+def main(argv=None) -> None:
     """CLI / console-script entry point. Wraps run() so nothing is printed to
     stderr and the process exits 0 - run() itself still returns the full
     result dict for callers (see tests/conftest.py)."""
-    run()
+    args = _parse_args(argv)
+    run(ai_backend=args.ai_backend, escalate_backend=args.escalate_backend)
 
 
 if __name__ == "__main__":
