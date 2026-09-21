@@ -1,0 +1,125 @@
+{"ticket_id":"TK-240320","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"advised eq reset, resolved. -- refund + rplc, cx escalation avoided"}
+{"ticket_id":"TK-240483","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"esc to wty. issue: rapid battery drain"}
+{"ticket_id":"TK-240588","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"Shipment not rcvd. Raised ticket with courier partner"}
+{"ticket_id":"TK-240796","reason":"CANCEL","theme":"customer_cancellation","confidence":"high","evidence":"My son ordered thhis without asking, please reverse"}
+{"ticket_id":"TK-240963","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"Reported: ord not delivered"}
+{"ticket_id":"TK-241062","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"reset done, paired ok. -- Both refund and replacement given as cx threatened social media"}
+{"ticket_id":"TK-241292","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"fw update resolved | refunded and also raised replacement, cx was very upset"}
+{"ticket_id":"TK-241468","reason":"CANCEL","theme":"customer_cancellation","confidence":"high","evidence":"my son ordered this without asking, please reverse"}
+{"ticket_id":"TK-241475","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"ticket raised for ord not delivered"}
+{"ticket_id":"TK-241646","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"paid once, statement disagrees"}
+{"ticket_id":"TK-242055","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Re-pair successful, rslvd on chat. Both rfnd & rplc given as cx threatened social media"}
+{"ticket_id":"TK-242061","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"low","evidence":"Refund not recieved yet. I emailed twice"}
+{"ticket_id":"TK-242249","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"paid once, statement disagrees"}
+{"ticket_id":"TK-242251","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"no power | asked cx to try different adaptor"}
+{"ticket_id":"TK-242253","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"customer states low mic pickup. tested on call with cx"}
+{"ticket_id":"TK-242358","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"medium","evidence":"got a different colour than orered"}
+{"ticket_id":"TK-242534","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"Reset rslvd (SOP 3.1) Refunded and also raised rplc, cx was very upset"}
+{"ticket_id":"TK-242848","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"cx: rapid battery drain | replacement raised after test"}
+{"ticket_id":"TK-242985","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"adv fw update via app, rslvd. rfnd done & new unit sent as one-time gesture"}
+{"ticket_id":"TK-243070","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but I got no order id"}
+{"ticket_id":"TK-243207","reason":"WTY-BUYBACK","theme":"connectivity_firmware","confidence":"medium","evidence":"issue: app crashing | asked for phone model + os"}
+{"ticket_id":"TK-243395","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Strap damage / Replacement strap dispatched"}
+{"ticket_id":"TK-243408","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"re-pair successful, resovled on chat. refund + rplc, cx escalation avoided"}
+{"ticket_id":"TK-243578","reason":"LOST-TRANSIT","theme":"delivery_delay","confidence":"medium","evidence":"order status stuck on shipped since august 05"}
+{"ticket_id":"TK-243659","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but I got no order id"}
+{"ticket_id":"TK-243718","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"high","evidence":"PACKED THE BOX A WEEK AGO AND IT'S STILL HERE"}
+{"ticket_id":"TK-243993","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"buzzing sound from the speaker"}
+{"ticket_id":"TK-244095","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Permissions fixed, rslvd. -- Credited full amount, new unit also going out tomorrow"}
+{"ticket_id":"TK-244153","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"medium","evidence":"paid on 06-08-2025, still waiting for something to show up"}
+{"ticket_id":"TK-244172","reason":"WTY-BUYBACK","theme":"connectivity_firmware","confidence":"medium","evidence":"BT dropouts / Checked FW 1.6.10"}
+{"ticket_id":"TK-244281","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Microphone is vry low on the Arc neckband"}
+{"ticket_id":"TK-244570","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"advised port cleaning, resolved. refund processed to source; replacement unit also shipped"}
+{"ticket_id":"TK-244880","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"Advised settings change, cx satisfied. Refunded and also raised replacement, cx was very upset"}
+{"ticket_id":"TK-244910","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Re-pair successful, resolved on chat. Both refund and replacement given as cx threatened social media"}
+{"ticket_id":"TK-244941","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"two entres of Rs 2499 on my statement for one pair of earbuds"}
+{"ticket_id":"TK-244950","reason":"PRICE-ADJ","theme":"pricing_coupon","confidence":"high","evidence":"Discount was not applied at checkout"}
+{"ticket_id":"TK-244959","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"high","evidence":"you picked up the iem 18 days ago and my money hasn't come back"}
+{"ticket_id":"TK-245197","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"rsolved on call. Money back to source and a fresh pair shipped"}
+{"ticket_id":"TK-245282","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Reported: poor battery backup. Checked FW 3.7.7"}
+{"ticket_id":"TK-245283","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"touch issue / replacement raised (sop 5.4)"}
+{"ticket_id":"TK-245478","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"fw update pushed, adv to monitor. | rfnd done & new unit sent as one-time gesture"}
+{"ticket_id":"TK-245509","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"paid once, statement disagrees"}
+{"ticket_id":"TK-245535","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"strap pin issue / Strap material peeling like an old sticker"}
+{"ticket_id":"TK-245590","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"issue: shipment not received. confirmed address with cx"}
+{"ticket_id":"TK-245625","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"my bank shows the same amount twice on the same day"}
+{"ticket_id":"TK-246028","reason":"PRICE-ADJ","theme":"pricing_coupon","confidence":"high","evidence":"discount was not applied at checkout"}
+{"ticket_id":"TK-246060","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"repair completed, shipped back. refund done and new unit sent as one-time gesture"}
+{"ticket_id":"TK-246154","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"mney debited but order not showing"}
+{"ticket_id":"TK-246379","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"permissions fixed, rslvd. full refund issued and replacement dispatched as goodwill"}
+{"ticket_id":"TK-246412","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"the page failed after I padi and now nothing shhows in my account"}
+{"ticket_id":"TK-246642","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but I got no order id"}
+{"ticket_id":"TK-246700","reason":"WTY-BUYBACK","theme":"connectivity_firmware","confidence":"medium","evidence":"after the update prompt it went dark & never came back"}
+{"ticket_id":"TK-246838","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"re: poor battery backup | chk fw 1.1.0"}
+{"ticket_id":"TK-246888","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"high","evidence":"where is the monye for the return"}
+{"ticket_id":"TK-246954","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"my bank shows the same amount twice on the same day"}
+{"ticket_id":"TK-247086","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"repair completed, shipped back. refund done and new unit sent as one-time gesture"}
+{"ticket_id":"TK-247267","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Reset done, paired ok. Cx got the amount back, also sending a new set to keep him happy"}
+{"ticket_id":"TK-247297","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"shipment not received. Confirmed address with cx"}
+{"ticket_id":"TK-247439","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"Payment went through but I got n"}
+{"ticket_id":"TK-247444","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Re-pair successful, resolved on chat. Cx got the amount back, also sending a new set"}
+{"ticket_id":"TK-247472","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but I got no order id"}
+{"ticket_id":"TK-247603","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but I got no order id"}
+{"ticket_id":"TK-247828","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"only one side plays sound"}
+{"ticket_id":"TK-247941","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"re-pair successful, resolved on chat. -- refund done and new unit sent as one-time gesture"}
+{"ticket_id":"TK-247959","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"PAYMENT WENT THROUGH BUT I GOT NO ORDER ID"}
+{"ticket_id":"TK-247969","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"reset done. issued rfnd + rplc both, tl aware"}
+{"ticket_id":"TK-248252","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"adv FW update via app, rslvd. Both rfnd & rplc given as cx threatened social media"}
+{"ticket_id":"TK-248371","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"high","evidence":"Return pickup has not happened"}
+{"ticket_id":"TK-248507","reason":"WTY-BUYBACK","theme":"connectivity_firmware","confidence":"medium","evidence":"BT dropouts / chk interference sources / rplc raised"}
+{"ticket_id":"TK-248596","reason":"WTY-BUYBACK","theme":"connectivity_firmware","confidence":"medium","evidence":"Device not disoverable / Walkde through forget + re-pair"}
+{"ticket_id":"TK-248660","reason":"CANCEL","theme":"customer_cancellation","confidence":"high","evidence":"my son ordered this without asking, please reverse"}
+{"ticket_id":"TK-248743","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"advised, cx will monitor | refund + rplc, cx escalation avoided"}
+{"ticket_id":"TK-248762","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"cx repported shipment not rcvd. conf address w/ cx"}
+{"ticket_id":"TK-248842","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"strap broken | asked for photo"}
+{"ticket_id":"TK-248929","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"medium","evidence":"OPENED THE PARCEL & IT IS A COMPLETELY DIFFERENT THING"}
+{"ticket_id":"TK-248997","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Charging case dead / Asked cx to try different cable + adaptor"}
+{"ticket_id":"TK-249028","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payemnt went through but i got no order id"}
+{"ticket_id":"TK-249273","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"high","evidence":"you picked up teh item 12 days ago and my money hasn't come back"}
+{"ticket_id":"TK-249329","reason":"LOST-TRANSIT","theme":"delivery_delay","confidence":"medium","evidence":"tracking has sadi out for delivery for a week now"}
+{"ticket_id":"TK-249405","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"my bank shwos the same amount twice on the same day"}
+{"ticket_id":"TK-249755","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"2.4ghz worked, resolved. | Issued refund + replacement both, TL aware"}
+{"ticket_id":"TK-249757","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Static noise in audio / Asked for a recording"}
+{"ticket_id":"TK-249903","reason":"PRICE-ADJ","theme":"pricing_coupon","confidence":"high","evidence":"discount was not applied at checkout"}
+{"ticket_id":"TK-249993","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"high","evidence":"return pickup has not happened"}
+{"ticket_id":"TK-250022","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"adv porrt cleaning, rslvd. -- Full refund issued & replacement dispatched as goodwill"}
+{"ticket_id":"TK-250087","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"reset done, paired ok. -- amount returned to card; fresh unit shipped"}
+{"ticket_id":"TK-250554","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"charging case dead | conf case led dead -> rplc case raised"}
+{"ticket_id":"TK-250576","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"shipment not received. Checked AWB w/ courier"}
+{"ticket_id":"TK-250694","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Reset rslvd, cx confirmeed left bud charging | Issued rfnd + replacement both, TL aware"}
+{"ticket_id":"TK-250701","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"reset resolved, cx conf left bud charging | refund + rplc, cx escalation avoided"}
+{"ticket_id":"TK-250814","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"medium","evidence":"re: wronng variant rcvd | raised w/ warehouse"}
+{"ticket_id":"TK-250906","reason":"LOST-TRANSIT","theme":"delivery_delay","confidence":"high","evidence":"Reported: delivery delayed. Confirmed address with cx"}
+{"ticket_id":"TK-251139","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"poor battery backup. Replacement approved, reverse pickup arranged"}
+{"ticket_id":"TK-251151","reason":"RETURN-QC-OK","theme":"return_qc","confidence":"low","evidence":"refund not reecived yet"}
+{"ticket_id":"TK-251212","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"my bank says rs 6499 went to you but your sitte says i hve no order"}
+{"ticket_id":"TK-251248","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Reset done, paired ok. rfnd + rplc, cx escalation avoided"}
+{"ticket_id":"TK-251335","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"adv settings change, cx satifsied. Cx got the amount back, also sending a new set"}
+{"ticket_id":"TK-251358","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"issue: charging case dead | asked cx to try different cable + adaptor"}
+{"ticket_id":"TK-251542","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"issue: strap pin issue | asked for photo"}
+{"ticket_id":"TK-251620","reason":"WTY-BUYBACK","theme":"connectivity_firmware","confidence":"medium","evidence":"connection droppping / replacement raised, rma shared with cx"}
+{"ticket_id":"TK-251818","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"repair completed, shipped back. -- refunded and also raised replacement, cx was very upset"}
+{"ticket_id":"TK-251849","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Issue: static noise in audio. chk with different source"}
+{"ticket_id":"TK-252168","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Repair completed, shipped back. -- Cx got the amount back, also sending a new set"}
+{"ticket_id":"TK-252212","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"one of them (left) never gets the green light in the case"}
+{"ticket_id":"TK-252660","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Issue: battery drining fast. chk usage pattern with cx"}
+{"ticket_id":"TK-252718","reason":"PRICE-ADJ","theme":"pricing_coupon","confidence":"high","evidence":"Discount was not applied at checkout"}
+{"ticket_id":"TK-252727","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"resoled on cll. | Refunded. rplc request rejected as per policy"}
+{"ticket_id":"TK-252845","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment was deducted but no orrder was created"}
+{"ticket_id":"TK-253135","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"re-pair successful, rslvd on chat. Both rfnd and rplc given as cx threatened social media"}
+{"ticket_id":"TK-253149","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but i got no order id"}
+{"ticket_id":"TK-253178","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"The strap is tearing"}
+{"ticket_id":"TK-253466","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but i got no order id"}
+{"ticket_id":"TK-253515","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"adv FW update via app, rslvd. -- Refunded & also raised rplc, cx was very upset"}
+{"ticket_id":"TK-253569","reason":"GW-OTHER","theme":"service_recovery","confidence":"medium","evidence":"Repair completed, shipped back. -- refund + rplc, cx escalation avoided"}
+{"ticket_id":"TK-253584","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"Contact re charging case dead. chk for lint in port"}
+{"ticket_id":"TK-253739","reason":"WTY-BUYBACK","theme":"hardware_fault","confidence":"medium","evidence":"issue: charging case dead. confirmed case led dead"}
+{"ticket_id":"TK-253839","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"adv fw update via app, rslvd. Both refund and rplc given as cx threatened social media"}
+{"ticket_id":"TK-253854","reason":"PRICE-ADJ","theme":"pricing_coupon","confidence":"high","evidence":"discount was not applied at checkout"}
+{"ticket_id":"TK-253903","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Re-pair successful, rslvd on chat. | Full refund issued and rplc dispatched as goodwill"}
+{"ticket_id":"TK-253938","reason":"DUP-PAYMENT","theme":"payment_failure","confidence":"high","evidence":"payment went through but i got no order id"}
+{"ticket_id":"TK-253966","reason":"LOST-TRANSIT","theme":"transit_lost","confidence":"high","evidence":"shipment not received. Confirmed address with cx"}
+{"ticket_id":"TK-254038","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"reset done, paired ok. | Full refund issued and replacement dispatched as goodwill"}
+{"ticket_id":"TK-254226","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"fw update resolved | full refund issued and replacement dispatched as goodwill"}
+{"ticket_id":"TK-254266","reason":"LOST-TRANSIT","theme":"delivery_delay","confidence":"high","evidence":"conf address with cx -> rto conf, reshipped"}
+{"ticket_id":"TK-254439","reason":"GW-OTHER","theme":"service_recovery","confidence":"high","evidence":"Reset done, paired ok. | refund + rplc, cx escalation avoided"}

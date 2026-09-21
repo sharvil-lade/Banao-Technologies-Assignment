@@ -8,10 +8,11 @@ from __future__ import annotations
 import sys
 import pandas as pd
 from . import (config, load, validate, normalise, dedupe, agents as agents_mod,
-               joins, policy, canonical, aggregate, reconcile)
+               joins, policy, canonical, aggregate, reconcile, ai_classify)
 
 
-def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True) -> dict:
+def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True,
+        ai_backend="two_tier", escalate_backend="cache") -> dict:
     out_dir = config.DERIVED if out_dir is None else __import__("pathlib").Path(out_dir)
     reports_dir = config.REPORTS if reports_dir is None else __import__("pathlib").Path(reports_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -64,6 +65,21 @@ def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True) -> dict:
     say(f"[7/9] policy      refunds={len(refunds):,} total=Rs {refunds.refund_amount_inr.sum():,.0f} "
         f"suspicious={int(refunds.is_suspicious.sum())}")
 
+    # 7b. AI layer --------------------------------------------------------
+    # Runs AFTER the canonical table is final. Nothing the model returns can
+    # change a refund amount - attach() only adds ai_* columns (D-16).
+    total_before = refunds.refund_amount_inr.sum()
+    labels = ai_classify.classify(refunds, backend=ai_backend,
+                                  escalate_backend=escalate_backend)
+    refunds = ai_classify.attach(refunds, labels)
+    assert refunds.refund_amount_inr.sum() == total_before, \
+        "the AI layer changed a refund total - this must never happen"
+    t1 = labels.attrs.get("tier1_count", 0)
+    t2 = labels.attrs.get("tier2_count", 0)
+    say(f"[7b/9] ai         tier1(rules,free)={t1:,} tier2(model)={t2:,} "
+        f"({t2 / max(len(refunds), 1) * 100:.1f}% escalated) "
+        f"reason_mismatch={int(refunds.flag_reason_mismatch.sum()):,}")
+
     # 8. aggregate --------------------------------------------------------
     monthly = aggregate.monthly_summary(refunds, tickets_tbl)
     reason = aggregate.by_reason(refunds)
@@ -71,6 +87,10 @@ def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True) -> dict:
     agent = aggregate.by_agent(refunds, tickets_tbl)
     team = aggregate.by_team(refunds, tickets_tbl)
     suspicious = aggregate.suspicious_cases(refunds)
+    reason_restated = aggregate.by_reason_restated(refunds)
+    goodwill_check = aggregate.goodwill_reality_check(refunds)
+    theme = aggregate.by_theme(refunds)
+    ai_cov = aggregate.ai_coverage(refunds)
     say(f"[8/9] aggregated  months={len(monthly)} reasons={len(reason)} agents={len(agent)}")
 
     # 9. reconcile --------------------------------------------------------
@@ -100,6 +120,11 @@ def run(raw_dir=None, out_dir=None, reports_dir=None, verbose=True) -> dict:
         "reconciliation_identities": identities,
         "client_number_comparison": comparison,
         "validation_report": report.to_frame(),
+        "by_reason_restated": reason_restated,
+        "goodwill_reality_check": goodwill_check,
+        "by_theme": theme,
+        "ai_coverage": ai_cov,
+        "ai_labels": labels,
     }
     for name, df in outputs.items():
         df.to_csv(out_dir / f"{name}.csv", index=False)

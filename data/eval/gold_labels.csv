@@ -1,0 +1,169 @@
+ticket_id,gold_reason,gold_theme,gold_confidence,gold_evidence
+TK-240003,WTY-BUYBACK,hardware_fault,low,What is the status of my warranty claim
+TK-240015,RETURN-QC-OK,return_qc,high,chk reverse pkp qc status -> full rfnd processed
+TK-240023,WTY-BUYBACK,hardware_fault,high,re: warranty claim status | checked rma status -> refunded
+TK-240026,CANCEL,customer_cancellation,high,cancellation request / cancelled before dispatch
+TK-240028,RETURN-QC-OK,return_qc,medium,nobody came for the pickup
+TK-240046,WTY-BUYBACK,hardware_fault,medium,case no led / no charge | checked for lint in port
+TK-240089,CANCEL,customer_cancellation,high,"cancelled, refund initiated. issue: cancellation request"
+TK-240106,DUP-PAYMENT,payment_failure,high,"payment debited, no order"
+TK-240117,RETURN-QC-OK,return_qc,high,Checked reverse pkp QC status. Full rfnd processed
+TK-240120,RETURN-QC-OK,return_qc,high,chk reverse pkp QC status
+TK-240138,CANCEL,customer_cancellation,high,Cancelled before dispatch
+TK-240146,RETURN-QC-OK,return_qc,medium,issue: rfnd delay. checked rfnd status on pg
+TK-240148,WTY-BUYBACK,hardware_fault,medium,case no led / no charge
+TK-240226,RETURN-QC-OK,return_qc,medium,Pickup missed / Re-raised pickup with courier
+TK-240242,WTY-BUYBACK,connectivity_firmware,medium,keeps losing my phone if I walk to the other room
+TK-240246,DUP-PAYMENT,payment_failure,high,"Paid via UPI, amount deducted, no order confirmation"
+TK-240247,RETURN-QC-OK,return_qc,high,you picked up the item 11 days ago and my money hasn't come back
+TK-240256,DUP-PAYMENT,payment_failure,high,money debited but order not showing
+TK-240262,RETURN-QC-OK,return_qc,medium,Cx reported incorrect product shipped
+TK-240263,LOST-TRANSIT,transit_lost,high,refund initiated as lost in transit
+TK-240279,WTY-BUYBACK,connectivity_firmware,medium,Cx reported intermittent disconnects
+TK-240307,CANCEL,customer_cancellation,high,Want to cancel my order
+TK-240311,DUP-PAYMENT,payment_failure,high,Issue: failed order after payment
+TK-240320,GW-OTHER,service_recovery,medium,"advised eq reset, resolved. -- refund + rplc, cx escalation avoided"
+TK-240328,RETURN-QC-OK,return_qc,high,Checked reverse pickup QC status
+TK-240338,RETURN-QC-OK,return_qc,high,issue: refund not credited. checked refund status on pg
+TK-240354,CANCEL,customer_cancellation,high,cx: cancel ord | chk shipment satus
+TK-240359,RETURN-QC-OK,return_qc,high,chk reverse pkp QC status
+TK-240368,CANCEL,customer_cancellation,high,issue: order cancellation. cancelled before dispatch
+TK-240381,CANCEL,customer_cancellation,high,cancellation request. Cancelled before dispatch
+TK-240384,DUP-PAYMENT,payment_failure,high,issue: failed order aftre payment
+TK-240416,RETURN-QC-OK,return_qc,low,refund not received yet. i already cheecked bank
+TK-240429,DOA-REPL,transit_damage,high,"issue: damaged in transit. photos received, damage confirmed"
+TK-240479,DOA-REPL,transit_damage,high,Reported: transit damage
+TK-240483,WTY-BUYBACK,hardware_fault,medium,esc to wty. issue: rapid battery drain
+TK-240492,CANCEL,customer_cancellation,high,cx says cancel ord. cancelled before dispatch
+TK-240495,RETURN-QC-OK,return_qc,medium,pkp not done / re-raised pkp w/ crr
+TK-240496,DUP-PAYMENT,payment_failure,high,duplicate payment / checked pg for duplicate txn
+TK-240505,LOST-TRANSIT,transit_lost,high,issue: shipment not received. checked awb with courier
+TK-240515,DUP-PAYMENT,payment_failure,high,Card charged two times
+TK-240530,RETURN-QC-OK,return_qc,medium,cx: reverse pickup pending | checked pickup awb
+TK-240531,CANCEL,customer_cancellation,high,issue: cancel ord | cancelled beforre dispatch
+TK-240545,RETURN-QC-OK,return_qc,medium,Cust contacted re wrong variant received
+TK-240554,DUP-PAYMENT,payment_failure,high,"Cx repoorted payment debited, no ord"
+TK-240556,DOA-REPL,transit_damage,high,Cx reported unit rcvd damaged
+TK-240559,CANCEL,customer_cancellation,high,issue: order cancellation. cancelled before dispatch
+TK-240564,WTY-BUYBACK,hardware_fault,medium,Ticket raised for mic issue. Tested on call w/ cx
+TK-240568,WTY-BUYBACK,hardware_fault,medium,issue: left earbud not taking charge
+TK-240580,RETURN-QC-OK,return_qc,medium,Pickup not done / Re-raised pickup w/ courier
+TK-240588,LOST-TRANSIT,transit_lost,high,Shipment not rcvd / Raised ticket with courier partner
+TK-240604,RETURN-QC-OK,return_qc,high,The return was accepted but the amount is nowhere in my account
+TK-240618,RETURN-QC-OK,return_qc,medium,reufnd not credited. Checked refund status on PG
+TK-240629,DUP-PAYMENT,payment_failure,high,amount deducted without order
+TK-240641,PRICE-ADJ,pricing_coupon,high,promo code shows invalid
+TK-240649,RETURN-QC-OK,return_qc,high,Reverse pickup pending / Checked pickup AWB
+TK-240650,DUP-PAYMENT,payment_failure,high,charged twice / chk pg for duplicate txn
+TK-240682,CANCEL,customer_cancellation,high,customer states cancel order. cancelled before dispatch
+TK-240686,WTY-BUYBACK,hardware_fault,high,warranty claim status | followed up with service centre
+TK-240691,RETURN-QC-OK,return_qc,high,Checked reverse pickup QC status
+TK-240699,LOST-TRANSIT,delivery_delay,medium,"delivery delayed / RTO confirmed, reshipped"
+TK-240702,CANCEL,customer_cancellation,high,cx: cancellation request | cancelled before dispatch
+TK-240712,DUP-PAYMENT,payment_failure,high,double charge / conf utrs
+TK-240737,CANCEL,customer_cancellation,high,cx states cancellation request. chk shipment status
+TK-240746,LOST-TRANSIT,delivery_delay,high,Issue: delivery delayed. Confirmed address with cx
+TK-240753,PRICE-ADJ,pricing_coupon,high,The festive offer vanished when I clicked pay
+TK-240764,RETURN-QC-OK,return_qc,medium,re: pkp not done | checked pkp awb
+TK-240816,RETURN-QC-OK,return_qc,medium,issue: reverse pickup pending. chk pickup awb
+TK-240825,RETURN-QC-OK,return_qc,medium,Refund pending / Checked refund status on PG
+TK-240829,LOST-TRANSIT,transit_lost,high,Refund initiated as lost in transit
+TK-240834,DUP-PAYMENT,payment_failure,high,Ticket raised for double charge. cofn UTRs
+TK-240835,DUP-PAYMENT,payment_failure,high,"Issue: payment debited, no order"
+TK-240845,DUP-PAYMENT,payment_failure,high,"payment debited, no ord"
+TK-240856,RETURN-QC-OK,return_qc,medium,pcikup missed. chk pickup AWB
+TK-240864,DOA-REPL,transit_damage,high,"issue: transit damage | photos received, damage confirmed"
+TK-240879,RETURN-QC-OK,return_qc,high,you picked up the item 5 days ago and my money hasn't come back
+TK-240889,RETURN-QC-OK,return_qc,high,Checked revrese pickup QC status
+TK-240951,DOA-REPL,transit_damage,high,Box was crushed and the Strata 2 is cracked
+TK-240953,DUP-PAYMENT,payment_failure,high,re: amount deducted without order | checked pg dashboard
+TK-240963,LOST-TRANSIT,transit_lost,high,Reported: ord not delivered. Raised ticket with courier partner
+TK-240980,RETURN-QC-OK,return_qc,high,checked reverse pickup qc status
+TK-240984,WTY-BUYBACK,connectivity_firmware,medium,cx: fw update failed
+TK-241003,DUP-PAYMENT,payment_failure,high,amount deducted without order. conf w/ payment gateway
+TK-241026,DUP-PAYMENT,payment_failure,high,Ticket raised for faild ord after payment
+TK-241027,WTY-BUYBACK,hardware_fault,medium,right side silent. walked through reset. esc to warranty
+TK-241038,PRICE-ADJ,pricing_coupon,high,cx: prmo code invalid | checked cart eligiiblity
+TK-241062,GW-OTHER,service_recovery,high,"reset done, paired ok. -- Both refund and replacement given as cx threatened social media"
+TK-241065,DUP-PAYMENT,payment_failure,high,My bank says Rs 3499 went to u but ur site says I have no orders
+TK-241067,RETURN-QC-OK,return_qc,medium,issue: incorrect product shipped
+TK-241071,CANCEL,customer_cancellation,high,Customer states cancellation request
+TK-241089,RETURN-QC-OK,return_qc,medium,Contact re refund pending. Checked refund status on PG
+TK-241092,RETURN-QC-OK,return_qc,medium,Cx says rfnd delay. Checked rfnd status on PG
+TK-241097,RETURN-QC-OK,return_qc,medium,Contact re reverse pickup pending. chk pickup AWB
+TK-241118,RETURN-QC-OK,return_qc,low,refund was promised 12 days ago and nothing
+TK-241152,RETURN-QC-OK,return_qc,high,where is the money for the return
+TK-241155,CANCEL,customer_cancellation,high,Issue: ord cancellation. chk shipment status
+TK-241156,DUP-PAYMENT,payment_failure,high,amount deducted without order. checked pg dashboard for txn
+TK-241163,DUP-PAYMENT,payment_failure,high,amount deducted without order
+TK-241215,DUP-PAYMENT,payment_failure,high,amount deducted without ord. chk PG dashboard for txn
+TK-241220,DUP-PAYMENT,payment_failure,high,re: double charge | confirmde utrs
+TK-241229,DUP-PAYMENT,payment_failure,high,"cx: paymnt debited, no ord | conf with payment gateway"
+TK-241236,RETURN-QC-OK,return_qc,high,issue: rfnd not credited. checked reverse pickup qc status
+TK-241243,DUP-PAYMENT,payment_failure,high,"payment debited, no order"
+TK-241273,WTY-BUYBACK,hardware_fault,medium,Issue: single side audio only
+TK-241279,DUP-PAYMENT,payment_failure,high,"UPI shows success, ur app shows nothing"
+TK-241284,CANCEL,customer_cancellation,high,Issue: cancelllation request. Cancelled before dispatch
+TK-241292,GW-OTHER,service_recovery,high,"fw update resolved (sop 5.4) | refunded rs 1799 and also raised replacement, cx was very upset"
+TK-241315,DUP-PAYMENT,payment_failure,high,Cx says duplicate payment. conf UTRs
+TK-241333,CANCEL,customer_cancellation,high,re: cancel order | cancelled before dispatch
+TK-241342,LOST-TRANSIT,transit_lost,high,cx states shipment not rcvd. Raised ticket w/ courier partner
+TK-241391,LOST-TRANSIT,transit_lost,high,reported: shipment not rcvd. raised ticket w/ crr partner
+TK-241398,WTY-BUYBACK,connectivity_firmware,medium,cx: connection dropping
+TK-241415,RETURN-QC-OK,return_qc,medium,cx states pickup not done. Re-raised pickup w/ courier
+TK-241421,DUP-PAYMENT,payment_failure,high,failed order after payment
+TK-241475,LOST-TRANSIT,transit_lost,high,ticket raised for ord not delivered
+TK-241476,DOA-REPL,transit_damage,high,"Ticket raised for transit damage. Photos received, damage confirmed"
+TK-241540,RETURN-QC-OK,return_qc,high,Checked reverse pkp QC status
+TK-241559,DOA-REPL,transit_damage,high,"Issue: damaged in transit. Photos received, damage confirmed"
+TK-241575,GW-OTHER,service_recovery,high,rfnd processed without pickup as goodwill
+TK-241644,RETURN-QC-OK,return_qc,medium,cx: pkp not done | chk pkp awb
+TK-241675,GW-OTHER,service_recovery,medium,"Re-pair successful, resolved on chat. Amount returned to card"
+TK-241676,RETURN-QC-OK,return_qc,high,re: refund delay | checked reverse pickup qc sttaus
+TK-241686,RETURN-QC-OK,return_qc,high,issue: refund not credited. chk refund status on pg
+TK-241690,RETURN-QC-OK,return_qc,high,issue: refund not credited. chk refund status on pg
+TK-241705,RETURN-QC-OK,return_qc,medium,pkp not done. Re-raised pkp with courier
+TK-241711,DUP-PAYMENT,payment_failure,high,duplicate payment / checked pg for duplicate txn
+TK-241723,PRICE-ADJ,pricing_coupon,high,re pormo code invalid. chk cart eligibility
+TK-241735,RETURN-QC-OK,return_qc,medium,where is the money for the return
+TK-241749,WTY-BUYBACK,hardware_fault,medium,issue: no audio one side | walked through reset
+TK-241755,WTY-BUYBACK,hardware_fault,medium,issue: unresponsive display | asked for video
+TK-241768,RETURN-QC-OK,return_qc,high,Contaact re refund not credited. chk refund status on PG
+TK-241775,RETURN-QC-OK,return_qc,medium,Reported: rfnd pending. chk rfnd status on PG
+TK-241788,RETURN-QC-OK,return_qc,high,checked reverse pkp qc status
+TK-241789,CANCEL,customer_cancellation,high,issue: cancel order | cancelled before dispatch
+TK-241796,CANCEL,customer_cancellation,high,Order cancellation / Cancelled before dispatch
+TK-241800,WTY-BUYBACK,connectivity_firmware,medium,Issue: unable to pair w/ phone. chk phone OS version
+TK-241826,RETURN-QC-OK,return_qc,high,Refund pending / Checked refund status on PG
+TK-241832,DUP-PAYMENT,payment_failure,high,double paymeent deducted
+TK-241845,RETURN-QC-OK,return_qc,medium,pkp missed / Checked pkp AWB
+TK-241851,WTY-BUYBACK,hardware_fault,medium,Warranty claim status / Followed up with service centre
+TK-241857,CANCEL,customer_cancellation,high,Issue: cancellation request. chk shipment status
+TK-241863,RETURN-QC-OK,return_qc,medium,issue: reverse pickup pending. re-raised pickup with courier
+TK-241868,DUP-PAYMENT,payment_failure,high,duplicate payment / conf utrs
+TK-241869,DUP-PAYMENT,payment_failure,high,duplicate payment. conf utrs
+TK-241876,DUP-PAYMENT,payment_failure,high,payment was deducted but no order was created
+TK-241881,DUP-PAYMENT,payment_failure,high,"payment debited, no order / confirmed with payment gateway"
+TK-241883,WTY-BUYBACK,hardware_fault,medium,re: battery draining fast | adv disabling anc/aod to test
+TK-241897,WTY-BUYBACK,hardware_fault,medium,mic issue | checked mic permissions on phone
+TK-241920,RETURN-QC-OK,return_qc,medium,Issue: pkp not done. Checked pkp AWB
+TK-241927,DUP-PAYMENT,payment_failure,high,duplicate payment. chk pg for duplicate txn
+TK-241932,DUP-PAYMENT,payment_failure,high,charged twice. chk PG for duplicate txn
+TK-241934,RETURN-QC-OK,return_qc,high,chk reverse pickup QC status
+TK-241942,RETURN-QC-OK,return_qc,medium,cx states refund delay. chk refund status on pg
+TK-241943,RETURN-QC-OK,return_qc,medium,refund delay. Checked refund status on PG
+TK-241962,CANCEL,customer_cancellation,high,Issue: cancel order. Checked shipment status
+TK-241993,DUP-PAYMENT,payment_failure,high,amount deducted without order / confirmed with payment gateway
+TK-242001,RETURN-QC-OK,return_qc,high,issue: refund pending. chk reverse pkp qc status
+TK-242006,PRICE-ADJ,pricing_coupon,high,issue: discount not applied. chk coupon validity
+TK-242025,CANCEL,customer_cancellation,high,Issue: ord cancellation. Cancelled before dispatch
+TK-242047,RETURN-QC-OK,return_qc,medium,issue: reverse pickup pending. re-raised pickup w/ courier
+TK-242055,GW-OTHER,service_recovery,high,"Re-pair successful, rslvd on chat. Both rfnd & rplc given as cx threatened social media"
+TK-242061,RETURN-QC-OK,return_qc,low,Refund not recieved yet. I emailed twice
+TK-242080,DUP-PAYMENT,payment_failure,high,Cx says duplicate payment. conf UTRs
+TK-242100,DOA-REPL,transit_damage,high,unit received damaged / chk wtih crr for damage claim
+TK-242101,PRICE-ADJ,pricing_coupon,high,discount not applied / checked coupon validity
+TK-242112,CANCEL,customer_cancellation,high,ord cancellation / cancelled before dispatch
+TK-242117,CANCEL,customer_cancellation,high,Ticket raised for ord cancellation
+TK-242121,WTY-BUYBACK,hardware_fault,low,"Claim number RMA53698, anyone alive there?"
+TK-242130,RETURN-QC-OK,return_qc,medium,Ticket raised for wrong item delivered. Raised with warehouse

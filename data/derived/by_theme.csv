@@ -1,0 +1,11 @@
+ai_theme,tickets,amount_inr,pct_of_refund_value
+return_qc,797,2184669.0,32.6
+payment_failure,511,1375566.0,20.5
+customer_cancellation,343,968908.0,14.4
+hardware_fault,175,596860.0,8.9
+transit_lost,148,501115.0,7.5
+transit_damage,119,356813.0,5.3
+pricing_coupon,106,277431.0,4.1
+service_recovery,65,230392.0,3.4
+connectivity_firmware,72,206056.0,3.1
+delivery_delay,4,12122.0,0.2

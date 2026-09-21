@@ -102,3 +102,57 @@ def suspicious_cases(refunds: pd.DataFrame) -> pd.DataFrame:
             "customer_message", "agent_notes"]
     out = refunds[refunds.is_suspicious][cols].copy()
     return out.sort_values(["flag_count", "refund_amount_inr"], ascending=False).reset_index(drop=True)
+
+
+# --------------------------------------------------------------- AI views
+# Everything below reports INTERPRETATION. The rupee figures are still computed
+# in pandas; the model only supplies the label the rupees are grouped by. Any
+# function here returns a frame the UI labels as interpretation, never as fact.
+
+def by_reason_restated(refunds: pd.DataFrame) -> pd.DataFrame:
+    """Refund value grouped by the reason the free text supports, beside the
+    reason the agent recorded. Both columns, never one replacing the other."""
+    total = refunds.refund_amount_inr.sum()
+    rec = (refunds.groupby("reason_code").refund_amount_inr
+           .agg(["sum", "size"]).rename(columns={"sum": "recorded_inr", "size": "recorded_n"}))
+    ai = (refunds[refunds.ai_suggested_reason != ""].groupby("ai_suggested_reason")
+          .refund_amount_inr.agg(["sum", "size"])
+          .rename(columns={"sum": "restated_inr", "size": "restated_n"}))
+    out = rec.join(ai, how="outer").fillna(0).reset_index(names="reason_code")
+    out["delta_inr"] = out.restated_inr - out.recorded_inr
+    out["recorded_pct"] = (out.recorded_inr / total * 100).round(1)
+    out["restated_pct"] = (out.restated_inr / total * 100).round(1)
+    return out.sort_values("recorded_inr", ascending=False).reset_index(drop=True)
+
+
+def goodwill_reality_check(refunds: pd.DataFrame) -> pd.DataFrame:
+    """What the tickets booked as the dropdown default actually describe."""
+    gw = refunds[refunds.reason_code == "GW-OTHER"]
+    if gw.empty:
+        return pd.DataFrame()
+    total = gw.refund_amount_inr.sum()
+    out = (gw.groupby("ai_suggested_reason")
+           .agg(tickets=("ticket_id", "size"), amount_inr=("refund_amount_inr", "sum"))
+           .reset_index())
+    out["pct_of_goodwill_value"] = (out.amount_inr / total * 100).round(1)
+    out["is_genuine_goodwill"] = out.ai_suggested_reason == "GW-OTHER"
+    return out.sort_values("amount_inr", ascending=False).reset_index(drop=True)
+
+
+def by_theme(refunds: pd.DataFrame) -> pd.DataFrame:
+    """The 'what for' view: refund value by underlying driver."""
+    total = refunds.refund_amount_inr.sum()
+    out = (refunds[refunds.ai_theme != ""].groupby("ai_theme")
+           .agg(tickets=("ticket_id", "size"), amount_inr=("refund_amount_inr", "sum"))
+           .reset_index())
+    out["pct_of_refund_value"] = (out.amount_inr / total * 100).round(1)
+    return out.sort_values("amount_inr", ascending=False).reset_index(drop=True)
+
+
+def ai_coverage(refunds: pd.DataFrame) -> pd.DataFrame:
+    """How each label was produced. The cost story in one table."""
+    src = refunds.ai_run_id.replace("", "none")
+    out = src.value_counts().rename_axis("label_source").reset_index(name="tickets")
+    out["pct"] = (out.tickets / len(refunds) * 100).round(1)
+    out["costs_money"] = out.label_source.eq("tier2")
+    return out

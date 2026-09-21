@@ -1,0 +1,2 @@
+refunds_processed,tier1_free,tier2_model_calls,escalation_rate_pct,batches,input_tokens,output_tokens,usd_claude-haiku-4-5,inr_claude-haiku-4-5,usd_claude-sonnet-4-5,inr_claude-sonnet-4-5
+2340,2215,125,5.3,3,10301,5625,0.0384,3.38,0.1153,10.14

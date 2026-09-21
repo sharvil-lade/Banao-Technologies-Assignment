@@ -1,0 +1,9 @@
+ai_suggested_reason,tickets,amount_inr,pct_of_goodwill_value,is_genuine_goodwill
+RETURN-QC-OK,319,909184.0,31.3,False
+WTY-BUYBACK,156,510528.0,17.6,False
+DUP-PAYMENT,189,490363.0,16.9,False
+CANCEL,121,355958.0,12.2,False
+LOST-TRANSIT,78,266931.0,9.2,False
+DOA-REPL,56,168062.0,5.8,False
+GW-OTHER,37,135652.0,4.7,True
+PRICE-ADJ,35,70358.0,2.4,False
