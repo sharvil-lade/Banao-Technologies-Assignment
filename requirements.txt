@@ -1,2 +1,10 @@
+# Core pipeline. These two are all you need to reproduce every number.
 pandas>=2.0
 pytest>=7.0
+
+# Reviewer UI only. The pipeline runs without it.
+streamlit>=1.30
+
+# Optional: only needed for --ai-backend anthropic (re-running the AI layer
+# against the live API). The shipped results reproduce without it.
+# anthropic>=0.40
