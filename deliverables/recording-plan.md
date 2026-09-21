@@ -6,10 +6,10 @@ slides.** Phone recording of the screen is fine.
 
 Budget: **175 seconds of content**, leaving ~5s of slack.
 
-This is a **cue card, not a script** — short phrases to glance at and speak
-naturally off, not sentences to read verbatim. Reading full sentences on
-camera sounds stiff and eats the time budget; talking naturally off short
-cues doesn't.
+This is a **cue card, not a script** — plain, spoken lines to glance at, not
+sentences to memorize. Say them in your own words if that feels more
+natural; the point is what to show and roughly what to say, not word-for-word
+delivery.
 
 ---
 
@@ -17,59 +17,79 @@ cues doesn't.
 
 **0:00–0:20 — The problem**
 *[email-thread.txt, Arjun's message]*
-- Finance: >1 crore/qtr. Helpdesk: ~11 lakh. Which one's right?
+> "Finance thought refunds were over a crore a quarter. The helpdesk said
+> only about 11 lakh. So — who's right?"
 
-*[run: raw CSV sum in terminal]*
+*[run the raw sum in terminal]*
 ```bash
 python -c "import pandas as pd; print(pd.read_csv('data/raw/tickets.csv').refund_amount_inr.replace('',None).astype(float).sum())"
 ```
-- "Raw export sums to ~23 crore — reproducible, but unusable as-is."
+> "If you just add up the raw file... yeah, you get 23 crore. So the number's
+> real, but you can't just add up the file and trust it."
 
-**0:20–0:50 — Using AI carefully**
+**0:20–0:50 — How I used AI**
 *[prompts/reason_classifier.md]*
-- "AI only classifies text — never touches the money."
-- "Rule: only call it goodwill if the text actually says so — GW-OTHER is
-  the dropdown default, easy to over-trust."
-- "If pandas can compute it, pandas computes it."
+> "I used AI, but only to read text — never to touch the money."
+> "Like here — I only mark something as goodwill if the words actually say
+> so. Because 'Goodwill / Other' is just the first option in the dropdown,
+> so people click it without thinking."
+> "My rule: if the computer can calculate it, let it calculate it. Don't ask
+> AI to do the math."
 
 **0:50–1:20 — What changed**
-*[docs/ai-design.md, the two-tier diagram]*
-- "First plan: send all 991 goodwill tickets to the model. Stopped after
-  168 — wrong architecture."
-- "Switched to two-tier: rules first, model only for the ~5%."
-- "Cost dropped ₹46 → ₹0.81 a month."
-- "Those 168 became my evaluation set instead — 97.5% measured accuracy."
+*[docs/ai-design.md, the diagram]*
+> "At first I planned to send all 991 goodwill tickets to the AI, one by
+> one. I did 168 and stopped — too slow, too expensive, and I couldn't even
+> check if it was right."
+> "So I flipped it: simple rules catch almost everything first, AI only
+> looks at the tricky 5%."
+> "Cost dropped from about ₹46 a month to under a rupee."
+> "And those 168 I'd already done? I used them to test how accurate the AI
+> actually is — 97.5%."
 
 **1:20–1:45 — What I threw away**
 *[run, live]*
 ```bash
 python -m pytest tests/test_dedupe.py::test_naive_drop_duplicates_would_have_been_wrong -v
 ```
-- "First dedupe: `drop_duplicates()`. Wrong — 125 of 638 pairs have
-  different amounts, ₹900 vs ₹90,000. Would've silently corrupted the
-  number."
-- "Also dropped repeat-contact costing — couldn't defend the assumption."
+> "My first idea for the duplicate tickets was just to delete the copies.
+> Turns out that was wrong — 125 of them had different amounts on each side,
+> like ₹900 versus ₹90,000. Delete the wrong one, and the whole number's
+> wrong."
+> "I also tried costing out repeat complaints as a savings idea, but
+> couldn't prove it cleanly, so I dropped it."
 
 **1:45–2:35 — The tool**
 ```bash
 python -m streamlit run app/app.py
 ```
-- *[Monthly, pick 2026-03]* — "163 refunds, ₹4.36L."
-- *[What for / AI]* — "Booked as goodwill: ₹29L. Text actually supports:
-  ₹1.36L. 43% becomes 2%."
-- *[Agents]* — "Not a leaderboard on purpose — Returns, Billing, Logistics
-  do most refunds by design."
-- *[Records → TK-240003]* — "Every number traces to one ticket — fact on
-  the left, AI read on the right."
+*[Monthly, pick 2026-03]*
+> "March 2026 — 163 refunds, about ₹4.36 lakh."
+
+*[What for / AI]*
+> "This shows what got booked as goodwill versus what people actually said.
+> Booked: ₹29 lakh. Real goodwill: ₹1.36 lakh. So 43% turns into 2%."
+
+*[Agents]*
+> "I show agents here too, but I didn't rank them — three teams just handle
+> way more refunds as part of their job. Ranking them would be unfair."
+
+*[Records → TK-240003]*
+> "Any number here, you can click into and see exactly which ticket it came
+> from — the plain facts on one side, the AI's read on the other."
 
 **2:35–2:55 — Proof**
-- *[Duplicate audit, TK-240003]* — "Helpdesk 900, legacy 90,000. Ratio
-  exactly 100 — across all 125 pairs, zero variance."
-- *[Reconciliation tab]* — "Residual: ₹0.00."
+*[Duplicate audit, TK-240003]*
+> "This one ticket: old system says 90,000, new system says 900. Exactly
+> 100 times off — true for all 125 pairs, no exceptions."
+
+*[Reconciliation tab]*
+> "Add it all up and it matches, perfectly. Nothing left over."
 
 **2:55–3:00 — Close**
 *[terminal, pipeline finishing]*
-- "Clean machine, ~10 seconds. ₹11.18 lakh a quarter — fully traceable."
+> "From a totally clean computer, about 10 seconds, and you get the real
+> number: ₹11.18 lakh a quarter — and you can check every rupee."
 
 ---
 
