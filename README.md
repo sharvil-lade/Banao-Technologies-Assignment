@@ -1,7 +1,5 @@
 # Vireo Audio — Refund Analysis Pipeline
 
-[![Tests](https://github.com/sharvil-lade/Banao-Technologies-Assignment/actions/workflows/tests.yml/badge.svg)](https://github.com/sharvil-lade/Banao-Technologies-Assignment/actions/workflows/tests.yml)
-
 A deterministic pipeline that reconciles Vireo Audio's messy support-ticket
 export into an auditable monthly refund summary, plus an AI-assisted layer
 that explains *why* refunds happen — kept strictly separate from the numbers.
@@ -58,10 +56,6 @@ python -m venv .venv
 source .venv/bin/activate        # Windows PowerShell: .venv\\Scripts\\Activate.ps1
 pip install -r requirements.txt
 ```
-
-Or `make setup` does the same three commands. Or `pip install -e ".[dev]"`
-installs the package properly (via `pyproject.toml`) and adds a
-`vireo-pipeline` command.
 
 Verified from scratch in a clean virtualenv: `pandas`, `pytest`, `streamlit`
 install and the full pipeline runs with no other setup.
@@ -131,7 +125,6 @@ reports/          reconciliation.md · validation.md
 docs/             requirements, data audit, decisions, data dictionary,
                   AI design, validation, business impact, scope, checklist
 deliverables/     memo to Arjun Mehta, submission form, recording plan
-pyproject.toml    packaging metadata; Makefile wraps the commands above
 ```
 
 **Three things worth knowing before you touch the code:**

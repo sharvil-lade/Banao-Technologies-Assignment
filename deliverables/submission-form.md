@@ -297,6 +297,12 @@ the 168-ticket gold set. No other models. **No paid API calls** (see Q2).
    keyword probes overlapped (payment 177, returns 181, transit 143) and could
    not adjudicate between them. That ambiguity is precisely what justified using
    a model at all.
+7. **A CI workflow, `pyproject.toml` and a `Makefile`,** added in a later
+   "make it look professional" pass, then deleted. Re-reading the brief's own
+   "about 5 hours... going over is not rewarded and we can usually tell"
+   against a repo that had grown a CI pipeline and packaging metadata was the
+   flag. None of it served Arjun; it existed to look thorough. Cut back to one
+   script and `requirements.txt`.
 
 **Screen recording:** «FILL IN — link»  (shot list in `deliverables/recording-plan.md`)
 
