@@ -1,0 +1,156 @@
+Task 1 V5
+Vireo Audio — Support Tickets (Set C)
+Window: 48 hours from the time you receive this. Expected effort: About 5 hours.
+
+We mean the cap. Going over is not rewarded and we can usually tell. If five hours is not enough to finish everything, that is expected — see On scope.
+
+---
+
+Context
+Vireo Audio is a Bengaluru-based consumer-audio and wearables brand: earbuds, headphones, smart speakers and watches, sold through its own site, Amazon and Flipkart.
+
+Its customer-support desk runs 44 agents across Bengaluru and Indore on three shifts, over chat, email, voice callbacks and social.
+
+They are evaluating us as a vendor.
+
+Arjun Mehta, Finance Controller, sent this:
+
+> "Refunds have gone up and I can't see why. I need a monthly summary of refunds by reason code and by agent - who is giving away money and for what. Something I can drop straight into the board pack. The helpdesk export is a mess, so good luck. Sameer has the files."
+
+---
+
+What you get
+`tickets.csv` — 18 months of support tickets (Jan 2025 to Jun 2026), including two free-text fields:
+The customer's opening message
+The agent's closing note
+`agents.csv` — the roster, one row per assignment.
+`orders.csv`, `customers.csv`, `products.csv` — reference data.
+`support-policy.pdf` — Vireo's support operating policy, including what things cost.
+`email-thread.txt` — the conversation that has already happened between Vireo and us. Read it; it is context you would otherwise have had to ask for.
+`README.txt` — what each column is.
+---
+
+What you deliver
+1. A working AI-assisted tool
+Any stack, any models.
+
+It must start from your README on a clean machine.
+
+> A small thing that runs beats a large thing that does not.
+
+---
+
+2. A business goal, stated as a number
+Not:
+
+> "Improve visibility"
+
+Something closer to:
+
+> "Cut X from 22% to 15%, worth about Rs Y a quarter."
+
+You will have to find the number in the data yourself.
+
+---
+
+3. Some way of showing it works
+How do you know your tool's output is correct, and how often is it not?
+
+We are not telling you what shape this takes.
+
+---
+
+4. A one-page memo to Arjun Mehta
+Not technical.
+
+Eleven minutes of reading, maximum.
+
+---
+
+5. A screen recording
+At most three minutes, walking through:
+
+The prompts you used
+What you changed between versions
+What you threw away
+Phone recording of your screen is fine.
+
+No slides.
+
+---
+
+6. The submission form
+Complete `submission-form.md` from this pack.
+
+> An unfilled form is an incomplete submission.
+
+---
+
+On scope
+There is more here than fits in five hours.
+
+That is on purpose.
+
+What you choose to leave out, and whether you can say why, matters as much to us as what you build.
+
+---
+
+On AI tools
+Use whatever you want, for anything:
+
+Coding assistants
+Chat models
+APIs
+Bring your own tools and keys; we do not provide credits.
+
+There is:
+
+No penalty for using them
+No bonus for not using them
+We do ask you to tell us honestly:
+
+What you used
+What it cost
+What you discarded
+That answer only ever helps you.
+
+---
+
+On the brief itself
+This is what a real client email looks like.
+
+It is not a specification, and nobody will turn it into one.
+
+There is no one to ask during the window: everything you need is in the pack, including the email thread.
+
+If something is still unclear:
+
+1. Decide. 2. Write down what you decided. 3. Explain why.
+
+We are paying attention to those decisions.
+
+1d 18h left
+
+Files
+agents.csv
+customers.csv
+email-thread.txt
+orders.csv
+products.csv
+README.txt
+support-policy.pdf
+tickets.csv
+What did you build, and what business outcome does it move?** State the number and the money.*
+What does one run cost, and what would a month cost at Vireo's volume (roughly 650 tickets a week)?** Show the arithmetic. If you used no paid calls, say so.*
+How do you know it works?** Sample size, how you checked, error rate, and the kind of case it gets wrong.*
+Did you change, narrow, or push back on the client's ask?** What, when, and why. **[can only raise your score]***
+What is wrong with what you are handing us?** Be specific: bugs, shortcuts, things you know are off. **[can only raise your score]*
+What did you deliberately leave out, and why that rather than something else?*
+Anything you built or found that nobody asked for?*
+What did you use AI for?** Which tools and models, where they helped, where they wasted your time, what you threw away. Link your three-minute screen recording here.*
+Your Public Google Drive Link
+
+Someone picks this up on Monday and you are unreachable.** The three things they need to know.*
+Honest hours spent.** One number.*
+Github Repo Link
+Please upload your Github Repo URL (Public)

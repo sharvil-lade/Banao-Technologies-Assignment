@@ -1,0 +1,37 @@
+import pandas as pd, numpy as np, re, collections
+pd.set_option('display.width',260); pd.set_option('display.max_colwidth',300)
+t=pd.read_csv('data/raw/tickets.csv',dtype=str,keep_default_na=False)
+t['amt']=pd.to_numeric(t.refund_amount_inr.replace('',np.nan),errors='coerce')
+t['amt_norm']=np.where(t.source_system=='legacy_fd',t.amt/100,t.amt)
+t['pref']=t.source_system.map({'helpdesk':0,'legacy_fd':1})
+c=t.sort_values('pref').drop_duplicates('ticket_id',keep='first').copy()
+c['m']=pd.to_datetime(c.created_at).dt.to_period('M'); c['q']=pd.to_datetime(c.created_at).dt.to_period('Q')
+cr=c[c.amt_norm.notna()]
+print("=== reason mix by quarter (share of amount) ===")
+p=cr.pivot_table(index='q',columns='refund_reason_code',values='amt_norm',aggfunc='sum').fillna(0)
+print((p.div(p.sum(axis=1),axis=0)*100).round(1).to_string())
+print("\n=== reason mix by quarter (amount) ===")
+print(p.round(0).to_string())
+print("\n=== refund rate & CSAT by quarter ===")
+c['csat']=pd.to_numeric(c.csat_score.replace('',np.nan))
+q=c.groupby('q').agg(tickets=('ticket_id','size'),csat=('csat','mean'))
+q['ref_n']=cr.groupby('q').size(); q['ref_amt']=cr.groupby('q').amt_norm.sum()
+q['rate%']=(q.ref_n/q.tickets*100).round(1); q['csat']=q.csat.round(2)
+print(q.to_string())
+
+print("\n=== text length / templating check ===")
+print("distinct customer_message:",c.customer_message.nunique(),"of",len(c))
+print("distinct agent_notes:",c.agent_notes.nunique())
+print("\n--- 8 GW-OTHER examples ---")
+for _,r in cr[cr.refund_reason_code=='GW-OTHER'].sample(8,random_state=1).iterrows():
+    print(f"[{r.ticket_id}] amt={r.amt_norm} cat={r.category} team={r.assigned_team} repl={r.replacement_issued}")
+    print("  CUST:",r.customer_message[:260])
+    print("  NOTE:",r.agent_notes[:260]); print()
+print("--- 4 non-GW examples ---")
+for _,r in cr[cr.refund_reason_code!='GW-OTHER'].sample(4,random_state=2).iterrows():
+    print(f"[{r.ticket_id}] {r.refund_reason_code} amt={r.amt_norm}")
+    print("  CUST:",r.customer_message[:200]); print("  NOTE:",r.agent_notes[:200]); print()
+print("--- 3 refund+replacement conflicts ---")
+for _,r in cr[(cr.replacement_issued=='Y')].sample(3,random_state=3).iterrows():
+    print(f"[{r.ticket_id}] {r.refund_reason_code} amt={r.amt_norm} team={r.assigned_team}")
+    print("  CUST:",r.customer_message[:200]); print("  NOTE:",r.agent_notes[:250]); print()
