@@ -1,0 +1,10 @@
+severity,check,detail,count,sample
+info,tickets.rows,rows as exported,12238,
+info,tickets.unique_ids,distinct ticket_id,11600,
+info,fk.agent_id->agents,all keys resolve,0,
+info,fk.product_sku->products,all keys resolve,0,
+info,fk.customer_id->customers,all keys resolve,0,
+info,fk.order_id->orders,all keys resolve,0,
+info,timestamps.first_response<created,negative duration (possible timezone mix - see D-09),0,
+info,timestamps.resolved<created,negative duration (possible timezone mix - see D-09),0,
+info,timestamps.resolved<first_response,negative duration (possible timezone mix - see D-09),0,

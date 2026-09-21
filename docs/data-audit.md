@@ -122,15 +122,20 @@ receive both a refund and a replacement for the same order."*
 | Source of signal | Tickets | Refund value |
 |---|---|---|
 | `replacement_issued = Y` **and** a refund amount | **166** | ₹5,74,191 |
-| `replacement_issued = N` but the agent's note explicitly says both were given | **29** | ₹1,04,640 |
-| **Total** | **195** | **₹6,78,831** |
+| `replacement_issued = N` but the agent's note explicitly says both were given | **36** | ₹1,29,556 |
+| **Total** | **202** | **₹7,03,747** |
+
+_(The Step 1 audit found 29 note-only cases with a first-pass keyword probe. The
+Step 2 pipeline uses a slightly broader set of high-precision phrases — adding
+`refund + rplc` and `replacement and refund` — and finds 36. The pipeline figure
+is the one used everywhere downstream; `vireo/policy.py` holds the exact phrase list.)_
 
 The 29 hidden cases are only visible in free text. Example note (flag = N):
 > *"issued refund + replacement both, tl aware. -VB"*
 
 Adding the policy replacement cost (`unit_cost_inr` + ₹340 reverse-pickup/shipping, policy §5)
-gives a combined exposure of **₹10,30,361 over 18 months = ₹1,71,727 per quarter**,
-and the count is trending up (18 → 16 → 32 → 38 → 53 → 38 per quarter).
+gives a combined exposure of **₹10,53,369 over 18 months = ₹1,75,562 per quarter**,
+and the count is trending up (19 → 16 → 33 → 41 → 52 → 41 per quarter).
 
 This is a candidate business goal. **Not yet committed** — see Step 4.
 

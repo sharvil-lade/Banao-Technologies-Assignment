@@ -1,0 +1,4 @@
+source,claim,reproducible_from_data,per_quarter_inr
+"Arjun Mehta, Finance (email 7 & 9 Sep)",well over Rs 1 crore per quarter,yes - by summing the export without converting legacy paise,
+"Helpdesk standard report (via Sameer Qureshi, 7 Sep)",around Rs 11 lakh per quarter,yes - matches the canonical total,1118322.0
+This pipeline,canonical refund total,reconciles to the raw export with zero residual,1118322.0

@@ -1,0 +1,9 @@
+reason_code,reason_label,refund_amount_inr,refund_count,median_refund_inr,over_goodwill_cap,pct_of_refund_value
+GW-OTHER,Goodwill / Other,2907036.0,991,2499.0,879,43.3
+RETURN-QC-OK,Return received and passed QC,1181386.0,452,2249.0,0,17.6
+DUP-PAYMENT,Duplicate or failed payment,884586.0,321,2124.0,0,13.2
+CANCEL,Cancellation before dispatch,612950.0,222,2249.0,0,9.1
+DOA-REPL,"Dead on arrival, refund chosen",471190.0,147,2799.0,0,7.0
+WTY-BUYBACK,Warranty buy-back,289154.0,89,2974.0,0,4.3
+PRICE-ADJ,Price or coupon adjustment,207073.0,71,2374.0,0,3.1
+LOST-TRANSIT,Lost or undelivered,156557.0,47,2499.0,0,2.3

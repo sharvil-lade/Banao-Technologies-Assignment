@@ -1,0 +1,5 @@
+step,adjustment_inr,running_total_inr,rows_affected,why
+"0. Raw export, refund_amount_inr summed as exported",,230124081.0,2465,What a reader of the file gets with no handling. Matches the order of magnitude Finance reports.
+1. Legacy Freshdesk amounts converted from paise to rupees,-223053138.0,7070943.0,775,"policy S9: the legacy tool stored its own native unit. Measured factor 100 from 125 duplicate pairs, zero variance (D-03)."
+2. Migration duplicates removed (legacy twin of a re-imported ticket),-361011.0,6709932.0,125,"policy S9: a subset of legacy tickets was re-imported and appears under both source systems. The helpdesk row is kept (D-02); the twin is retained in duplicate_audit.csv, not deleted."
+3. Canonical refund total,,6709932.0,2340,"One row per ticket, all amounts in rupees."

@@ -1,0 +1,8 @@
+agent_team,refund_amount_inr,refund_count,replacement_conflicts,tickets_handled,refund_rate_pct
+Returns Desk,1692666.0,612,17,1215,50.4
+Billing,1579977.0,592,4,1638,36.1
+Chat Frontline,1165339.0,387,63,3279,11.8
+Logistics,1111749.0,356,55,2073,17.2
+Email Frontline,564316.0,213,26,1799,11.8
+Escalations & Warranty,298735.0,82,21,726,11.3
+Voice Frontline,297150.0,98,16,870,11.3

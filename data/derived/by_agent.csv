@@ -1,0 +1,45 @@
+agent_id,refund_amount_inr,refund_count,avg_refund_inr,suspicious_count,replacement_conflicts,goodwill_over_cap,agent_name,agent_team,agent_tier,agent_site,agent_is_tier2,tickets_handled,mean_csat,gw_amount_inr,refund_rate_pct,pct_of_total_refunds,gw_share_pct
+A3036,773812.0,266,2909.0,102,10,100,Ritika D'Souza,Returns Desk,1,Indore,False,526,3.31,331191.0,50.6,11.5,42.8
+A3035,627682.0,235,2671.0,83,1,82,Dev Kulkarni,Billing,1,Bengaluru,False,697,3.61,248328.0,33.7,9.4,39.6
+A3030,507323.0,162,3132.0,73,29,61,Aishwarya Trivedi,Logistics,1,Indore,False,942,3.3,212475.0,17.2,7.6,41.9
+A3038,490184.0,171,2867.0,56,1,55,Ankit Dhillon,Returns Desk,1,Bengaluru,False,322,3.27,208261.0,53.1,7.3,42.5
+A3037,428670.0,175,2450.0,58,6,56,Manish Iyer,Returns Desk,1,Indore,False,367,3.17,177557.0,47.7,6.4,41.4
+A3032,338500.0,126,2687.0,40,2,39,Sneha Bansal,Billing,1,Indore,False,314,3.44,118558.0,40.1,5.0,35.0
+A3033,323954.0,113,2867.0,36,1,36,Vikram Banerjee,Billing,1,Bengaluru,False,320,3.53,116317.0,35.3,4.8,35.9
+A3034,289841.0,118,2456.0,36,0,36,Tanvi Rathore,Billing,1,Indore,False,307,3.64,114221.0,38.4,4.3,39.4
+A3018,231022.0,87,2655.0,39,9,37,Krishna Bhatt,Email Frontline,1,Indore,False,786,3.65,101108.0,11.1,3.4,43.8
+A3026,193955.0,65,2984.0,31,12,27,Aadhya Deshpande,Voice Frontline,1,Bengaluru,False,505,3.63,89507.0,12.9,2.9,46.1
+A3028,172413.0,57,3025.0,29,5,26,Sameer Kapoor,Logistics,1,Indore,False,269,3.46,82286.0,21.2,2.6,47.7
+A3039,170641.0,43,3968.0,27,12,26,Reyansh Mishra,Escalations & Warranty,2,Bengaluru,True,380,3.25,111931.0,11.3,2.5,65.6
+A3027,156694.0,43,3644.0,19,9,15,Priya Agarwal,Logistics,1,Indore,False,276,3.27,71946.0,15.6,2.3,45.9
+A3029,151218.0,45,3360.0,20,7,17,Rajat Mukherjee,Logistics,1,Bengaluru,False,284,3.22,74639.0,15.8,2.3,49.4
+A3031,124101.0,49,2533.0,25,5,22,Zaid Desai,Logistics,1,Indore,False,302,3.05,52201.0,16.2,1.8,42.1
+A3002,103853.0,30,3462.0,18,5,17,Steven Ansari,Chat Frontline,1,Indore,False,224,3.56,64459.0,13.4,1.5,62.1
+A3010,102255.0,32,3195.0,15,8,11,Tenzin Mathew,Chat Frontline,1,Bengaluru,False,251,3.52,37070.0,12.7,1.5,36.3
+A3013,94370.0,27,3495.0,12,7,8,Rohit Nair,Chat Frontline,1,Bengaluru,False,240,3.61,29302.0,11.2,1.4,31.1
+A3017,88352.0,32,2761.0,15,6,12,Kabir Singh,Email Frontline,1,Indore,False,234,3.57,33659.0,13.7,1.3,38.1
+A3007,87999.0,27,3259.0,13,6,10,Abhishek Gupta,Chat Frontline,1,Indore,False,231,3.81,41372.0,11.7,1.3,47.0
+A3011,84335.0,23,3667.0,10,1,10,Rohit Gill,Chat Frontline,1,Bengaluru,False,238,3.64,36987.0,9.7,1.3,43.9
+A3016,83716.0,28,2990.0,16,6,11,Thomas Kumar,Email Frontline,1,Indore,False,234,3.68,27866.0,12.0,1.2,33.3
+A3001,83065.0,22,3776.0,8,3,6,Suresh Kaur,Chat Frontline,1,Indore,False,207,3.67,23063.0,10.6,1.2,27.8
+A3015,82408.0,29,2842.0,14,2,14,Sameer Jadhav,Chat Frontline,1,Bengaluru,False,194,3.48,42744.0,14.9,1.2,51.9
+A3005,81023.0,31,2614.0,18,5,16,Payal Bhatia,Chat Frontline,1,Indore,False,211,3.63,45476.0,14.7,1.2,56.1
+A3003,76222.0,30,2541.0,13,7,8,Komal Singh,Chat Frontline,1,Indore,False,231,3.5,23051.0,13.0,1.1,30.2
+A3006,72548.0,31,2340.0,14,6,13,Varun Bhatt,Chat Frontline,1,Bengaluru,False,230,3.61,40582.0,13.5,1.1,55.9
+A3012,65481.0,24,2728.0,11,0,11,Lakshmi Srivastava,Chat Frontline,1,Bengaluru,False,210,3.83,39820.0,11.4,1.0,60.8
+A3014,64044.0,22,2911.0,13,4,12,Anjali D'Souza,Chat Frontline,1,Bengaluru,False,205,3.71,39773.0,10.7,1.0,62.1
+A3009,63041.0,26,2425.0,13,4,12,Sukhwinder Singh,Chat Frontline,1,Indore,False,228,3.74,35359.0,11.4,0.9,56.1
+A3008,59077.0,17,3475.0,5,3,5,Meera Malhotra,Chat Frontline,1,Bengaluru,False,184,3.52,23094.0,9.2,0.9,39.1
+A3021,55020.0,18,3057.0,7,0,7,Meera Mathew,Email Frontline,1,Bengaluru,False,133,3.75,21494.0,13.5,0.8,39.1
+A3020,47310.0,19,2490.0,8,1,7,Aadhya Singh,Email Frontline,1,Bengaluru,False,132,3.43,17373.0,14.4,0.7,36.7
+A3004,45618.0,16,2851.0,5,2,5,Geeta Dutta,Chat Frontline,1,Bengaluru,False,195,3.6,19007.0,8.2,0.7,41.7
+A3024,43923.0,14,3137.0,6,2,5,Amit Deshpande,Voice Frontline,1,Bengaluru,False,111,3.66,12421.0,12.6,0.7,28.3
+A3044,41450.0,9,4606.0,4,2,3,Arjun Kumar,Escalations & Warranty,2,Bengaluru,True,83,3.5,14057.0,10.8,0.6,33.9
+A3023,37505.0,10,3750.0,3,0,3,Ritika Gaikwad,Voice Frontline,1,Bengaluru,False,136,3.83,21395.0,7.4,0.6,57.0
+A3022,36722.0,17,2160.0,12,4,10,Daniel Arora,Email Frontline,1,Indore,False,144,3.45,26407.0,11.8,0.5,71.9
+A3041,28433.0,7,4062.0,5,4,4,Mohammed Mehta,Escalations & Warranty,2,Bengaluru,True,73,3.38,17286.0,9.6,0.4,60.8
+A3042,27670.0,9,3074.0,6,0,6,Swati Bhatia,Escalations & Warranty,2,Indore,True,59,3.42,20502.0,15.3,0.4,74.1
+A3019,22174.0,12,1848.0,5,0,5,Kavya Agarwal,Email Frontline,1,Indore,False,136,3.44,10445.0,8.8,0.3,47.1
+A3025,21767.0,9,2419.0,7,2,7,Komal Malhotra,Voice Frontline,1,Bengaluru,False,118,3.62,21555.0,7.6,0.3,99.0
+A3040,20035.0,9,2226.0,6,3,4,Thomas Jadhav,Escalations & Warranty,2,Bengaluru,True,73,3.54,8422.0,12.3,0.3,42.0
+A3043,10506.0,5,2101.0,2,0,2,Nikhil Gupta,Escalations & Warranty,2,Bengaluru,True,58,2.82,2469.0,8.6,0.2,23.5
